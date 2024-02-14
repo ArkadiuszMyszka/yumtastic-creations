@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-console.log("app działa")
+console.log('app działa');
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });
