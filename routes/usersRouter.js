@@ -31,4 +31,11 @@ router.post('/signup', async (req, res, next) => {
   }
 });
 
-router.post('/login', async (req, res, next) => {});
+router.post('/login', async (req, res, next) => {
+  const { email, password } = req.body;
+  const userInDb = await isInDb(email);
+  if (!userInDb || userInDb.password !== password) {
+    return res.status(401).json({ message: 'Email or password is wrong' });
+  }
+  res.status(200).json({ message: 'Login successful' });
+});
