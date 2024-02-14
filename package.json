@@ -1,25 +1,25 @@
 {
-  "name": "parcel-project-template",
+  "name": "Yumtastic-Creations",
   "version": "1.1.0",
   "description": "",
-  "homepage": "https://github.com/migace/parcel-project-template-pl-main",
+  "homepage": "https://github.com/ArkadiuszMyszka/Yumtastic-Creations",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url parcel-project-template-pl-main"
+    "build": "parcel build src/*.html --public-url /Yumtastic-Creations/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/migace/parcel-project-template-pl-main.git"
+    "url": "git+https://github.com/ArkadiuszMyszka/Yumtastic-Creations.git"
   },
   "keywords": [],
-  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
+  "author": "Arkadiusz Myszka <myszkaaarek@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/migace/parcel-project-template-pl-main/issues"
+    "url": "https://github.com/ArkadiuszMyszka/Yumtastic-Creations/issues"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.3",
-    "parcel": "^2.8.3",
+    "parcel": "^1.12.4",
     "posthtml-include": "^1.7.4"
   }
 }
