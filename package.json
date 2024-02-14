@@ -69,5 +69,9 @@
     "posthtml-img-autosize": "^0.1.6",
     "posthtml-include": "^1.7.4",
     "posthtml-modules": "^0.9.1"
+  },
+  "imports": {
+    "#models/*": "./models/*",
+    "#helpers/*": "./helpers/*"
   }
 }
