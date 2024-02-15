@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { User } from '#models/User.js';
 import { isInDb } from '#helpers/usersHelpers.js';
 import jwt from 'jsonwebtoken';
+import { authMiddleware } from '#auth/jwt.js';
 
 export const router = Router();
 
@@ -48,4 +49,8 @@ router.post('/login', async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+});
+
+router.get('/current', authMiddleware, async (req, res, next) => {
+  res.status(200).json({ message: 'You are online', user: res.locals.user });
 });
