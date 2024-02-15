@@ -71,8 +71,9 @@
     "posthtml-modules": "^0.9.1"
   },
   "imports": {
-    "#models/*": "./models/*",
-    "#helpers/*": "./helpers/*",
-    "#auth/*": "./auth/*"
+    "#models/*": "./server/models/*",
+    "#helpers/*": "./server/helpers/*",
+    "#auth/*": "./server/auth/*",
+    "#routes/*": "./server/routes/*"
   }
 }
