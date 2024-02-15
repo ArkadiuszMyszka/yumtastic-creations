@@ -2,7 +2,7 @@ import express from 'express';
 import logger from 'morgan';
 import cors from 'cors';
 import 'dotenv/config';
-import { setJWTStrategy } from '#auth/jwt.js';
+import { setJWTStrategy } from '#config/jwt.js';
 
 import index from './server/routes/indexRoutes.js';
 import auth from './server/routes/authRoutes.js';

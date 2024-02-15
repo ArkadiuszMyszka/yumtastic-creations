@@ -12,6 +12,10 @@ const userSchema = new Schema(
       type: String,
       required: [true, 'Password is required'],
     },
+    newsletter: {
+      type: Boolean,
+      default: false,
+    },
   },
   { versionKey: false, timestamps: true },
 );
