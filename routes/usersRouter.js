@@ -52,5 +52,18 @@ router.post('/login', async (req, res, next) => {
 });
 
 router.get('/current', authMiddleware, async (req, res, next) => {
-  res.status(200).json({ message: 'You are online', user: res.locals.user });
+  try {
+    const user = res.locals.user;
+    res.status(200).json({ message: 'You are online', user: user });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get('/logout', authMiddleware, async (req, res, next) => {
+  try {
+    res.status(200).json({ message: 'Logout successful' });
+  } catch (err) {
+    next(err);
+  }
 });
