@@ -74,6 +74,7 @@
     "#models/*": "./server/models/*",
     "#helpers/*": "./server/helpers/*",
     "#auth/*": "./server/auth/*",
-    "#routes/*": "./server/routes/*"
+    "#routes/*": "./server/routes/*",
+    "#config/*": "./server/config/*"
   }
 }

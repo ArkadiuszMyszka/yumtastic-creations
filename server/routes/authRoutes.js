@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { authMiddleware } from '#auth/jwt.js';
+import { authMiddleware } from '#auth/authMiddleware.js';
 
 import { registerUser } from './authRoutes/registerRoutes.js';
 import { loginUser } from './authRoutes/loginRoutes.js';
