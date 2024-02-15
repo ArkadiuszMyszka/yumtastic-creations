@@ -2,8 +2,11 @@ import express from 'express';
 import logger from 'morgan';
 import cors from 'cors';
 import 'dotenv/config';
-import { router as usersRouter } from '#routes/usersRouter.js';
 import { setJWTStrategy } from '#auth/jwt.js';
+
+import index from './server/routes/indexRoutes.js';
+import auth from './server/routes/authRoutes.js';
+import recipes from './server/routes/recipesRoutes.js';
 
 const app = express();
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short';
@@ -15,9 +18,9 @@ app.use(express.static('public'));
 
 setJWTStrategy();
 
-app.use('/users', usersRouter);
-
-console.log('app działa');
+app.use('/', index);
+app.use('/', auth);
+app.use('/recipes', recipes);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });
