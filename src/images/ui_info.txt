@@ -1,0 +1,28 @@
+FIGMA MOCKUP
+https://www.figma.com/file/rj6kSC63HyaVsHXqMtt3Cv/So-Yummy?type=design&node-id=0-1&mode=design&t=NH8qO7gJ5dmbZhEC-0
+
+COLORS
+green: #8BAA36
+black: #22252A , #1E1F28
+white (font): #FAFAFA
+grey: #D9D9D9
+
+FONT 
+Poppins (all txt) - included in html:
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat&family=Comfortaa:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+EXAMPLE OF USAGE
+  { font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal; };
+
+TOOLS 
+delete colors: https://icomoon.io/app/#/select
+sprite: https://jakearchibald.github.io/svgomg/
+reduce the weight of graphics: https://squoosh.app
+
+
+
