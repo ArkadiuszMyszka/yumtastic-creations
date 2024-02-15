@@ -7,7 +7,6 @@ import index from './server/routes/indexRoutes.js';
 import auth from './server/routes/authRoutes.js';
 import recipes from './server/routes/recipesRoutes.js';
 
-
 const app = express();
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short';
 
