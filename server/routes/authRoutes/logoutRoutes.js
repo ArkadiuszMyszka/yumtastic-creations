@@ -1,5 +1,9 @@
 async function logoutUser(req, res, next) {
-  return res.json(req.body).status(200);
+  try {
+    res.status(200).json({ message: 'Logout successful' });
+  } catch (err) {
+    next(err);
+  }
 }
 
 export { logoutUser };

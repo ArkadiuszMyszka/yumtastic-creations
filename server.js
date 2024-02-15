@@ -3,7 +3,7 @@ import { app } from './app.js';
 import 'dotenv/config';
 import mongoose from 'mongoose';
 
-const PORT = process.env.PORT2 || 3001;
+const PORT = process.env.PORT || 3001;
 const uriDb = process.env.DB_HOST;
 const connection = mongoose.connect(uriDb);
 
