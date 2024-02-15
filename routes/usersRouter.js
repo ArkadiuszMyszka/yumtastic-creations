@@ -67,3 +67,22 @@ router.get('/logout', authMiddleware, async (req, res, next) => {
     next(err);
   }
 });
+
+// W pozniejszym czasie dodac więcej opcji zmiany danych uzytkownika
+router.patch('/patch', authMiddleware, async (req, res, next) => {
+  try {
+    const userData = res.locals.user;
+    const user = await User.findById(userData._id);
+    const { email, password } = req.body;
+    if (email) {
+      user.email = email;
+    }
+    if (password) {
+      await user.setPassword(password);
+    }
+    await user.save();
+    res.status(200).json({ message: 'User updated', user });
+  } catch (err) {
+    next(err);
+  }
+});
