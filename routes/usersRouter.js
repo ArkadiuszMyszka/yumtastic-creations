@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { User } from '#models/User.js';
 import { isInDb } from '#helpers/usersHelpers.js';
+import jwt from 'jsonwebtoken';
 
 export const router = Router();
 
@@ -23,7 +24,8 @@ router.post('/signup', async (req, res, next) => {
     return res.status(409).json({ message: 'Email in use' });
   }
   try {
-    const user = new User({ email, password });
+    const user = new User({ email });
+    await user.setPassword(password);
     await user.save();
     res.status(201).json({ message: 'Account created', user });
   } catch (err) {
@@ -32,10 +34,18 @@ router.post('/signup', async (req, res, next) => {
 });
 
 router.post('/login', async (req, res, next) => {
-  const { email, password } = req.body;
-  const userInDb = await isInDb(email);
-  if (!userInDb || userInDb.password !== password) {
-    return res.status(401).json({ message: 'Email or password is wrong' });
+  try {
+    const { email, password } = req.body;
+    const userInDb = await isInDb(email);
+    const isPasswordCorrect = userInDb ? await userInDb.comparePassword(password) : false;
+    if (!userInDb || isPasswordCorrect === false) {
+      return res.status(401).json({ message: 'Email or password is wrong' });
+    }
+    const payload = { id: userInDb._id, email: userInDb.email };
+    const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '6h' });
+
+    res.status(200).json({ token: token, user: userInDb, message: 'Login successful' });
+  } catch (err) {
+    next(err);
   }
-  res.status(200).json({ message: 'Login successful' });
 });

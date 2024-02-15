@@ -1,7 +1,10 @@
 import { User } from '#models/User.js';
 
 export const isInDb = async email => {
-  const user = await User.findOne({ email });
-
-  return user;
+  try {
+    const user = await User.findOne({ email });
+    return user;
+  } catch (err) {
+    return err;
+  }
 };
