@@ -18,6 +18,7 @@ router.get('/', async (req, res) => {
 });
 ///////////////////////////////////////////////
 
+// Rejestracja nowego użytkownika
 router.post('/signup', async (req, res, next) => {
   const { email, password } = req.body;
   const userInDb = await isInDb(email);
@@ -34,6 +35,7 @@ router.post('/signup', async (req, res, next) => {
   }
 });
 
+// identyfikacja przez email i hasło
 router.post('/login', async (req, res, next) => {
   try {
     const { email, password } = req.body;
@@ -51,6 +53,7 @@ router.post('/login', async (req, res, next) => {
   }
 });
 
+// Identyfikacja przez bearer token
 router.get('/current', authMiddleware, async (req, res, next) => {
   try {
     const user = res.locals.user;
@@ -60,6 +63,7 @@ router.get('/current', authMiddleware, async (req, res, next) => {
   }
 });
 
+// Identyfikacja przez bearer token
 router.get('/logout', authMiddleware, async (req, res, next) => {
   try {
     res.status(200).json({ message: 'Logout successful' });
@@ -69,6 +73,7 @@ router.get('/logout', authMiddleware, async (req, res, next) => {
 });
 
 // W pozniejszym czasie dodac więcej opcji zmiany danych uzytkownika
+// Identyfikacja przez bearer token
 router.patch('/patch', authMiddleware, async (req, res, next) => {
   try {
     const userData = res.locals.user;
