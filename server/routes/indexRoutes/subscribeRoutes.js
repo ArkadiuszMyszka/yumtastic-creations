@@ -10,6 +10,7 @@ async function subscribe(req, res) {
     user.newsletter = !user.newsletter;
     await user.save();
     return res.status(201).json({
+      user: user.email,
       message: user.newsletter
         ? 'You have subscribed to the newsletter'
         : 'You have unsubscribed from the newsletter',
