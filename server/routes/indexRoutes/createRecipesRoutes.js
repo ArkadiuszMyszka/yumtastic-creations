@@ -2,7 +2,6 @@ import { Recipe } from '../../service/schemas/recipes.js';
 
 async function createRecipe(req, res, next) {
   const {
-    _id,
     title,
     category,
     tags,
@@ -15,7 +14,6 @@ async function createRecipe(req, res, next) {
     thumb,
     preview,
     ingredients,
-    owner,
   } = req.body;
   const user = res.locals.user._id;
   try {
@@ -36,7 +34,7 @@ async function createRecipe(req, res, next) {
     });
     await newRecipe.save();
 
-    return res.status(201).json({message:"Recipe created!"});
+    return res.status(201).json({ message: 'Recipe created!' });
   } catch (e) {
     console.log(e);
     return res.status(500).json(e);
