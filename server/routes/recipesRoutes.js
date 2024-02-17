@@ -9,7 +9,7 @@ import { authMiddleware } from "#auth/authMiddleware.js";
 const recipes = Router();
 
 recipes.get('/category-list', authMiddleware, categoryList);
-recipes.get('/main-page', categoryMainPage);
+recipes.get('/main-page', authMiddleware, categoryMainPage);
 recipes.get('/:id', idRecipe);
 recipes.get('/:category', categoryRecipes);
 
