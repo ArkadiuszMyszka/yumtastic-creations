@@ -10,7 +10,7 @@ const recipes = Router();
 
 recipes.get('/category-list', authMiddleware, categoryList);
 recipes.get('/main-page', authMiddleware, categoryMainPage);
-recipes.get('/:id', idRecipe);
-recipes.get('/:category', categoryRecipes);
+// recipes.get('/:id', idRecipe);
+recipes.get("/:category", authMiddleware, categoryRecipes);
 
 export default recipes;
