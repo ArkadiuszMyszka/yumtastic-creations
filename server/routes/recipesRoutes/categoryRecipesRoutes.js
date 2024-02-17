@@ -3,9 +3,8 @@ import { Recipe } from "../../service/schemas/recipes.js";
 const categoryRecipes = async (req, res, next) => {
   const categoryTitle = req.params.category;
   const page = req.query.page;
-  const skip = Math.max(0, page) || 0;
   const perPage = 8;
-  console.log(skip);
+  const skip = Math.max(perPage * page) || 0;
 
   const findRecipes = await Recipe.find({ category: categoryTitle })
     .limit(perPage)
