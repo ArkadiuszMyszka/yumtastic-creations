@@ -1,38 +1,38 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema } from "mongoose";
 
 const recipeSchema = new Schema(
   {
     title: {
       type: String,
-      required: [true, 'Title is required'],
+      required: [true, "Title is required"],
     },
     category: {
       type: String,
-      required: [true, 'Category is required'],
+      required: [true, "Category is required"],
     },
     area: {
       type: String,
-      default: '',
+      default: "",
     },
     instructions: {
       type: String,
-      required: [true, 'Instructions is required'],
+      required: [true, "Instructions is required"],
     },
     description: {
       type: String,
-      default: '',
+      default: "",
     },
     thumb: {
       type: String,
-      default: '',
+      default: "",
     },
     preview: {
       type: String,
-      default: '',
+      default: "",
     },
     time: {
       type: Number,
-      required: [true, 'Time in minutes is required'],
+      required: [true, "Time in minutes is required"],
     },
     favorites: {
       type: Array,
@@ -40,7 +40,7 @@ const recipeSchema = new Schema(
     },
     youtube: {
       type: String,
-      default: '',
+      default: "",
     },
     tags: {
       type: Array,
@@ -48,14 +48,14 @@ const recipeSchema = new Schema(
     },
     ingredients: {
       type: Array,
-      required: [true, 'Even one ingredient is required'],
+      required: [true, "Even one ingredient is required"],
     },
     owner: {
       type: String,
       default: undefined,
     },
   },
-  { versionKey: false, timestamps: true },
+  { versionKey: false, timestamps: true }
 );
 
-export const Recipe = mongoose.model('recipe', recipeSchema, 'recipes');
+export const Recipe = mongoose.model("recipe", recipeSchema, "recipes");

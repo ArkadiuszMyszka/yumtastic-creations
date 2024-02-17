@@ -4,7 +4,6 @@ const categoryListSchema = new Schema({
   title: {
     type: String,
     required: [true, "Category name is required"],
-    unique: true,
   },
   thumb: {
     type: String,
@@ -18,7 +17,7 @@ const categoryListSchema = new Schema({
 });
 
 export const CategoryList = mongoose.model(
-  "categoriesList",
+  "categories",
   categoryListSchema,
   "categoriesList"
 );
