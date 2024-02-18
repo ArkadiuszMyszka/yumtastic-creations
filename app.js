@@ -20,7 +20,7 @@ setJWTStrategy();
 
 app.use('/', index);
 app.use('/', auth);
-app.use('/recipes', recipes);
+app.use('/', recipes);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });
