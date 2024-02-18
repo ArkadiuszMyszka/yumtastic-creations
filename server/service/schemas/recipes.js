@@ -1,5 +1,14 @@
 import mongoose, { Schema } from "mongoose";
 
+const ingredientsSchema = new Schema({
+  
+  id: mongoose.Types.ObjectId,
+  measure: {
+    type: String,
+    required: [true, "Measure is required"],
+  },
+},{ _id : false }); 
+
 const recipeSchema = new Schema(
   {
     title: {
@@ -46,10 +55,7 @@ const recipeSchema = new Schema(
       type: Array,
       default: [],
     },
-    ingredients: {
-      type: Array,
-      required: [true, "Even one ingredient is required"],
-    },
+    ingredients: [ingredientsSchema],
     owner: {
       type: String,
       default: undefined,
@@ -57,5 +63,7 @@ const recipeSchema = new Schema(
   },
   { versionKey: false, timestamps: true }
 );
+
+
 
 export const Recipe = mongoose.model("recipe", recipeSchema, "recipes");

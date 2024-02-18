@@ -7,7 +7,7 @@ const categoryList = async (req, res, next) => {
       sort: { title: 1 },
     });
     return res.json(userOwnReceipts).status(200);
-  } catch (error) {
+  } catch (e) {
     console.log(e);
     return res.status(500).json(e);
   }

@@ -6,7 +6,7 @@ const categoryMainPage = async (req, res, next) => {
     const findRecipes = await Recipe.find({ category: categoryTitle }).lean();
 
     return res.json(findRecipes).status(200);
-  } catch (error) {
+  } catch (e) {
     console.log(e);
     return res.status(500).json(e);
   }

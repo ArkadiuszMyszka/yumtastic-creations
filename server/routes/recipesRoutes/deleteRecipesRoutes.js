@@ -12,8 +12,8 @@ const deleteRecipe = async (req, res, next) => {
       await Recipe.findOneAndDelete({ _id: recipeId });
       return res.status(200).json({ message: 'Recipe deleted!' });
     } catch (err) {
-      console.log(e);
-      return res.status(500).json(e);
+      console.log(err);
+      return res.status(500).json(err);
     }
   }
 };

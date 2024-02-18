@@ -34,7 +34,7 @@ async function createRecipe(req, res, next) {
     });
     await newRecipe.save();
 
-    return res.status(201).json({ message: 'Recipe created!' });
+    return res.status(201).json({ message: "Recipe created!", newRecipe });
   } catch (e) {
     console.log(e);
     return res.status(500).json(e);

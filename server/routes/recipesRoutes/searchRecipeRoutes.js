@@ -8,8 +8,8 @@ const searchRecipe = async (req, res, next) => {
     });
     return res.json(findRecipe).status(200);
   } catch (error) {
-    console.log(e);
-    return res.status(500).json(e);
+    console.log(error);
+    return res.status(500).json(error);
   }
 };
 

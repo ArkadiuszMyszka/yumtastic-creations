@@ -11,7 +11,7 @@ const categoryRecipes = async (req, res, next) => {
       .limit(perPage)
       .skip(skip * page);
     return res.json(findRecipes).status(200);
-  } catch (error) {
+  } catch (e) {
     console.log(e);
     return res.status(500).json(e);
   }
