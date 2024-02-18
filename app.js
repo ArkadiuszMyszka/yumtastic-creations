@@ -7,6 +7,7 @@ import { setJWTStrategy } from '#config/jwt.js';
 import index from './server/routes/indexRoutes.js';
 import auth from './server/routes/authRoutes.js';
 import recipes from './server/routes/recipesRoutes.js';
+import ingredients from './server/routes/ingredientsRoutes.js';
 
 const app = express();
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short';
@@ -21,6 +22,7 @@ setJWTStrategy();
 app.use('/', index);
 app.use('/', auth);
 app.use('/', recipes);
+app.use("/ingredients", ingredients);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });
