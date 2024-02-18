@@ -9,11 +9,12 @@ import createRecipe from "./recipesRoutes/createRecipesRoutes.js";
 import deleteRecipe from "./recipesRoutes/deleteRecipesRoutes.js";
 import findOwnRecipes from "./recipesRoutes/findOwnRecipesRoutes.js";
 import searchRecipe from './recipesRoutes/searchRecipeRoutes.js';
+
 const recipes = Router();
 
 recipes.get("/recipes/category-list", authMiddleware, categoryList);
 recipes.get("/recipes/main-page", authMiddleware, categoryMainPage);
-// recipes.get('/:id', idRecipe);
+recipes.get('/recipes/:id', authMiddleware, idRecipe);
 recipes.get("/recipes/:category", authMiddleware, categoryRecipes);
 recipes.post("/ownRecipes", authMiddleware, createRecipe);
 recipes.delete("/ownRecipes", authMiddleware, deleteRecipe);
