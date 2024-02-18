@@ -1,10 +1,14 @@
-import { Recipe } from '../../service/schemas/recipes.js';
+import { Recipe } from "../../service/schemas/recipes.js";
 
 //funkcja zwraca id receptur ownera
 const findOwnRecipes = async (req, res, next) => {
   const userId = res.locals.user._id;
-  const userOwnReceipts = await Recipe.find({ owner: userId }, { _id: 1 }).lean();
   try {
+    const userOwnReceipts = await Recipe.find(
+      { owner: userId },
+      { _id: 1 }
+    ).lean();
+
     return res.status(200).json(userOwnReceipts);
   } catch (error) {
     console.log(e);

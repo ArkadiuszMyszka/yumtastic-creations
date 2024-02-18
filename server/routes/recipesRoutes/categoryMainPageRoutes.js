@@ -2,8 +2,9 @@ import { Recipe } from "../../service/schemas/recipes.js";
 
 const categoryMainPage = async (req, res, next) => {
   const categoryTitle = req.body.title;
-  const findRecipes = await Recipe.find({ category: categoryTitle }).lean();
   try {
+    const findRecipes = await Recipe.find({ category: categoryTitle }).lean();
+
     return res.json(findRecipes).status(200);
   } catch (error) {
     console.log(e);
