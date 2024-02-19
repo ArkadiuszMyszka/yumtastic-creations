@@ -46,6 +46,7 @@
     "#helpers/*": "./server/helpers/*",
     "#auth/*": "./server/auth/*",
     "#routes/*": "./server/routes/*",
-    "#config/*": "./server/config/*"
+    "#config/*": "./server/config/*",
+    "#schemas/*": "./server/service/schemas/*"
   }
 }
