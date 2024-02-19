@@ -23,11 +23,10 @@ const userSchema = new Schema(
           default: "",
         },
 
-        measure: {
-          type: String,
-          required: [true, "Set the measure"],
-        },
+        measure: [
+        ],
       },
+      
     ],
   },
   { versionKey: false, timestamps: true }
