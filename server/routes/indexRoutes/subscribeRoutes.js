@@ -1,19 +1,21 @@
-import { User } from '#models/User.js';
+import { Subscriptions } from "#schemas/subscriptions.js";
 
 async function subscribe(req, res) {
   try {
-    const userData = res.locals.user;
-    const user = await User.findById(userData._id);
-    if (!user) {
-      return res.status(409).json({ message: `There is no user with email: ${user.email}` });
+    const { email } = req.body;
+    const subscription = await Subscriptions.findOne({ email: email });
+    if (subscription) {
+      await Subscriptions.deleteOne({ email: email });
+      return res.status(200).json({
+        message: "You have unsubscribed from the newsletter",
+        email: email,
+      });
     }
-    user.newsletter = !user.newsletter;
-    await user.save();
+    await Subscriptions.create({ email: email });
     return res.status(201).json({
-      user: user.email,
-      message: user.newsletter
-        ? 'You have subscribed to the newsletter'
-        : 'You have unsubscribed from the newsletter',
+      message:
+        "You have subscribed to the newsletter, check your email for confirmation",
+      email: email,
     });
   } catch (err) {
     return res.status(500).json({ message: err.message });
