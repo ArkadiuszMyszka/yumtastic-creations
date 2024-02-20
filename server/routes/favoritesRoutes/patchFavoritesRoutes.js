@@ -4,7 +4,6 @@ export const patchFavorites = async (req, res) => {
   try {
     const user = await User.findOne(res.locals.user._id);
     const recipeId = req.body.id;
-
     if (user.favorites.includes(recipeId)) {
       await user.favorites.pull(recipeId);
       await user.save();
