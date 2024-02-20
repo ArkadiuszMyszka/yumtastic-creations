@@ -10,6 +10,7 @@ import recipes from "./server/routes/recipesRoutes.js";
 import ingredients from "./server/routes/ingredientsRoutes.js";
 import newsletter from "./server/routes/subscribeRoutes.js";
 import favorites from "./server/routes/favoritesRoutes.js";
+import shoppingList from "./server/routes/shoppingListRoutes.js";
 
 const app = express();
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
@@ -27,7 +28,7 @@ app.use("/", favorites);
 app.use("/", auth);
 app.use("/", recipes);
 app.use("/ingredients", ingredients);
-
+app.use("/shopping-list", shoppingList);
 app.use((req, res) => {
   res.status(404).json({ message: "Not found" });
 });

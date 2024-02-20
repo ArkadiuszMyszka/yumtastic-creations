@@ -19,6 +19,16 @@ const userSchema = new Schema(
     favorites: {
       type: [String],
     },
+    shoppingList: [
+      {
+        ingredientId: {
+          type: String,
+          default: "",
+        },
+
+        measure: [],
+      },
+    ],
   },
   { versionKey: false, timestamps: true }
 );
