@@ -1,8 +1,7 @@
 import { Router } from "express";
-// import { User } from "#models/User.js";
 import { authMiddleware } from "#auth/authMiddleware.js";
 import { favoritesList } from "./favoritesRoutes/favoritesListRoutes.js";
-import { patchFavorites } from "./favoritesRoutes/addToFavoritesRoutes.js";
+import { patchFavorites } from "./favoritesRoutes/patchFavoritesRoutes.js";
 
 const favorites = Router();
 
