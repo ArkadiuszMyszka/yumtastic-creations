@@ -1,5 +1,5 @@
-import mongoose, { Schema } from 'mongoose';
-import bcrypt from 'bcrypt';
+import mongoose, { Schema } from "mongoose";
+import bcrypt from "bcrypt";
 
 const userSchema = new Schema(
   {
@@ -16,6 +16,9 @@ const userSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    favorites: {
+      type: [String],
+    },
     shoppingList: [
       {
         ingredientId: {
@@ -23,10 +26,8 @@ const userSchema = new Schema(
           default: "",
         },
 
-        measure: [
-        ],
+        measure: [],
       },
-      
     ],
   },
   { versionKey: false, timestamps: true }
@@ -40,4 +41,4 @@ userSchema.methods.comparePassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
-export const User = mongoose.model('user', userSchema, 'users');
+export const User = mongoose.model("user", userSchema, "users");
