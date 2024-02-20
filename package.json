@@ -28,6 +28,9 @@
     "nodemailer": "^6.9.9",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
+    "swagger-express-router": "^1.0.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0",
     "uuid": "^9.0.1",
     "uuidv4": "^6.2.13",
     "webdriver-manager": "^12.1.9"
