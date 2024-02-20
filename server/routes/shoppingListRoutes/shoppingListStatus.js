@@ -1,9 +1,12 @@
-
+import { User } from "#models/User.js";
 
 const shopingListStatus = async (req, res, next) => {
+  const { _id } = res.locals.user;
+
   try {
-  
-    return res.json("ok").status(200);
+    const user = await User.findById(_id);
+    const shoppingList = user.shoppingList;
+    return res.json(shoppingList).status(200);
   } catch (e) {
     console.log(e);
     return res.status(500).json(e);
