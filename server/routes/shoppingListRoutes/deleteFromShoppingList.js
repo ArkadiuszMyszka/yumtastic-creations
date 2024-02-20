@@ -5,6 +5,7 @@ const deleteFromList = async (req, res, next) => {
   const ingredientId = req.body.ingredientId;
   const measure = req.body.measure;
   try {
+    const user = await User.findById(_id);
     const indexIngredient = user.shoppingList.findIndex((obj) => {
       return obj.ingredientId == ingredientId;
     });
@@ -12,9 +13,14 @@ const deleteFromList = async (req, res, next) => {
     const indexMeasure =
       user.shoppingList[indexIngredient].measure.indexOf(measure);
 
-    const user = await User.findById(_id);
+    const measureAvaible = user.shoppingList[indexIngredient].measure.length;
 
     if (!user.shoppingList || user.shoppingList.length === 0) {
+      return res.status(404).json({
+        message: "Shopping list is empty",
+      });
+    }
+    if (!measureAvaible || measureAvaible === 0) {
       await User.findOneAndUpdate(
         { _id: _id },
         {
@@ -22,11 +28,8 @@ const deleteFromList = async (req, res, next) => {
         },
         { new: true }
       );
-      return res.status(404).json({
-        message: "Shopping list is empty",
-      });
+      return res.status(404).json({ message: "Ingredient not found" });
     }
-
     if (indexMeasure !== -1) {
       const currentShoppingList = user.shoppingList[indexIngredient].measure;
 
