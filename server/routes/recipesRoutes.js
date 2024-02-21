@@ -12,8 +12,8 @@ import searchRecipe from './recipesRoutes/searchRecipeRoutes.js';
 
 const recipes = Router();
 
-recipes.get("/recipes/category-list", authMiddleware, categoryList);
-recipes.get("/recipes/main-page", authMiddleware, categoryMainPage);
+recipes.get("/recipes/category-list", categoryList);
+recipes.post("/recipes/main-page", categoryMainPage);
 recipes.get('/recipes/:id', authMiddleware, idRecipe);
 recipes.get("/recipes/:category", authMiddleware, categoryRecipes);
 recipes.post("/ownRecipes", authMiddleware, createRecipe);

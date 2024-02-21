@@ -9,7 +9,7 @@ import auth from "./server/routes/authRoutes.js";
 import recipes from "./server/routes/recipesRoutes.js";
 import ingredients from "./server/routes/ingredientsRoutes.js";
 import newsletter from "./server/routes/subscribeRoutes.js";
-import favorites from "./server/routes/favoritesRoutes.js";
+import favorites from "./favoritesRoutes.js";
 import shoppingList from "./server/routes/shoppingListRoutes.js";
 
 const app = express();
