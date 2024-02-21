@@ -20,6 +20,26 @@ const ingredientsSchema = new Schema({
   },
 });
 
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     ingredient:
+ *       required:
+ *         - ttl
+ *       type: object
+ *       properties:
+ *         ttl:
+ *           type: string
+ *           example: Chicken
+ *         desc:
+ *           type: string
+ *         thb:
+ *           type: string
+ *           example: https://res.cloudinary.com/ddbvbv5sp/image/upload/v1678564123/rw8pn3541bmukb8d3mio.png
+ *
+ */
+
 export const Ingredients = mongoose.model(
   "ingredient",
   ingredientsSchema,
