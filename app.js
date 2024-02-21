@@ -6,6 +6,7 @@ import { setJWTStrategy } from "#config/jwt.js";
 
 import swaggerUI from "swagger-ui-express";
 import swaggerjsdoc from "swagger-jsdoc";
+
 import swaggerApis from "./server/utils/swagger/apis.js"
 
 import index from "#apiRoutes/indexRoutes.js";
@@ -51,7 +52,9 @@ const options = {
       // },
     ],
   },
+
   apis: swaggerApis,
+
 };
 
 const swaggerSpec = swaggerjsdoc(options);
