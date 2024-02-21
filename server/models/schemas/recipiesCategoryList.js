@@ -16,6 +16,25 @@ const categoryListSchema = new Schema({
   },
 });
 
+/**
+ * @openapi
+ * components:
+ *   schemas:     
+ *     recipeCategoryList:
+ *       type: object
+ *       required:
+ *         - title
+ *         - description
+ *       properties:
+ *         title:
+ *           type: string
+ *         thumb:
+ *           type: string
+ *         description:
+ *           type: string
+ *
+ */
+
 export const CategoryList = mongoose.model(
   "categories",
   categoryListSchema,
