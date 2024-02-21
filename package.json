@@ -51,6 +51,7 @@
     "#routes/*": "./server/routes/*",
     "#config/*": "./server/config/*",
     "#schemas/*": "./server/models/schemas/*",
-    "#controllers/*": "./server/controllers/*"
+    "#controllers/*": "./server/controllers/*",
+    "#middlewares/*": "./server/middlewares/*"
   }
 }

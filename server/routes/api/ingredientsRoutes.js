@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { authMiddleware } from "#auth/authMiddleware.js";
+import { authMiddleware } from "#middlewares/authMiddleware.js";
 
 import ingredientsList from "../../controllers/ingredientsRoutes/ingredientsListController.js";
 import recipesByIngredients from "#controllers/ingredientsRoutes/recipesByController.js";

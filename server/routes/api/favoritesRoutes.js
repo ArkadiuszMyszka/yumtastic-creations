@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { authMiddleware } from "#auth/authMiddleware.js";
+import { authMiddleware } from "#middlewares/authMiddleware.js";
 import { favoritesList } from "#controllers/favoritesRoutes/favoritesListController.js";
 import { patchFavorites } from "#controllers/favoritesRoutes/patchFavoritesController.js";
 
@@ -72,7 +72,7 @@ favorites.get("/favorites", authMiddleware, favoritesList);
  *                              message:
  *                                  type: string
  *                              recipe:
- *                                  type: string 
+ *                                  type: string
  *                                  example: recipe ID
  *          201:
  *              description: Defined recipe deleted from user's favorite collection
@@ -84,10 +84,10 @@ favorites.get("/favorites", authMiddleware, favoritesList);
  *                              message:
  *                                  type: string
  *                              recipe:
- *                                  type: string 
+ *                                  type: string
  *                                  example: recipe ID
- *          
- *          
+ *
+ *
  */
 
 favorites.patch("/favorites", authMiddleware, patchFavorites);
