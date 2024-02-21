@@ -1,12 +1,8 @@
-
-import { Ingredients } from "../service/schemas/ingredients.js";
+import { Ingredients } from "#schemas/ingredients.js";
 
 const findIngID = async (title) => {
   try {
-    const ingID = await Ingredients.findOne(
-      { ttl: title },
-      { _id: 1 }
-    ).lean();
+    const ingID = await Ingredients.findOne({ ttl: title }, { _id: 1 }).lean();
     return ingID._id;
   } catch (error) {
     console.log(error);
@@ -14,4 +10,4 @@ const findIngID = async (title) => {
   }
 };
 
-export default findIngID
+export default findIngID;
