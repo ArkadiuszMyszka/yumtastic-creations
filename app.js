@@ -24,7 +24,7 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Test Name",
+      title: "Yumtastic Creations",
       version: "1.0.0",
       description:
         "This app offers more than just a collection of recipes - it is designed to be your very own digital cookbook. You can easily save and retrieve your own recipes at any time.",
@@ -45,7 +45,7 @@ const options = {
     ],
     servers: [
       {
-        url: "http://localhost:3002/api",
+        url: "http://localhost:3002/",
       },
       // {
       //   url: "tutaj bedzie adres drugiego servera",
@@ -53,13 +53,22 @@ const options = {
     ],
   },
 
-  apis: swaggerApis,
-
+  apis: swaggerApis, 
 };
 
 const swaggerSpec = swaggerjsdoc(options);
 const swaggerDocs = (app, port) => {};
-app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+app.use(
+  "/api-docs",
+  swaggerUI.serve,
+  swaggerUI.setup(swaggerSpec,
+  //   {
+  //   explorer: true,
+  //   customCssUrl:
+  //     "https://cdn.jsdelivr.net/npm/swagger-ui-themes@3.0.0/themes/3.x/theme-newspaper.css",
+  // }
+  )
+);
 app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
