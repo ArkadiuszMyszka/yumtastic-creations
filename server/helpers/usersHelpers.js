@@ -1,4 +1,4 @@
-import { User } from '#models/User.js';
+import { User } from "#schemas/user.js";
 
 export const isInDb = async email => {
   try {

@@ -6,14 +6,15 @@ import { setJWTStrategy } from "#config/jwt.js";
 
 import swaggerUI from "swagger-ui-express";
 import swaggerjsdoc from "swagger-jsdoc";
+import swaggerApis from "./server/utils/swagger/apis.js"
 
-import index from "./server/routes/indexRoutes.js";
-import auth from "./server/routes/authRoutes.js";
-import recipes from "./server/routes/recipesRoutes.js";
-import ingredients from "./server/routes/ingredientsRoutes.js";
-import newsletter from "./server/routes/subscribeRoutes.js";
-import favorites from "./server/routes/favoritesRoutes.js";
-import shoppingList from "./server/routes/shoppingListRoutes.js";
+import index from "#apiRoutes/indexRoutes.js";
+import auth from "#apiRoutes/authRoutes.js";
+import recipes from "#apiRoutes/recipesRoutes.js";
+import ingredients from "#apiRoutes/ingredientsRoutes.js";
+import newsletter from "#apiRoutes/subscribeRoutes.js";
+import favorites from "#apiRoutes/favoritesRoutes.js";
+import shoppingList from "#apiRoutes/shoppingListRoutes.js";
 
 const app = express();
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
@@ -50,7 +51,7 @@ const options = {
       // },
     ],
   },
-  apis: ["./server/routes/*.js", "./models/*.js"],
+  apis: swaggerApis,
 };
 
 const swaggerSpec = swaggerjsdoc(options);
