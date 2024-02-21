@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { authMiddleware } from "../../middlewares/authMiddleware.js";
+import { authMiddleware } from "#middlewares/authMiddleware.js";
 import { favoritesList } from "#controllers/favoritesRoutes/favoritesListController.js";
 import { patchFavorites } from "#controllers/favoritesRoutes/patchFavoritesController.js";
 
