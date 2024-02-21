@@ -13,7 +13,7 @@ async function loginUser(req, res, next) {
     const payload = { id: userInDb._id, email: userInDb.email };
     const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '6h' });
 
-    res.status(200).json({ token: token, user: userInDb, message: 'Login successful' });
+    res.status(200).json({ token: token, message: 'Login successful' });
   } catch (err) {
     next(err);
   }
