@@ -1,4 +1,5 @@
 import { Subscriptions } from "#schemas/subscriptions.js";
+import { sendEmail } from "#helpers/sendEmail.js";
 
 async function subscribe(req, res) {
   try {
@@ -12,6 +13,11 @@ async function subscribe(req, res) {
       });
     }
     await Subscriptions.create({ email: email });
+    await sendEmail(
+      email,
+      "Yumtastic Creations Newsletter",
+      "You have subscribed to the Yumtastic Creations newsletter! Thanks for your trust!"
+    );
     return res.status(201).json({
       message:
         "You have subscribed to the newsletter, check your email for confirmation",
