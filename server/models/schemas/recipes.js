@@ -78,7 +78,7 @@ const recipeSchema = new Schema(
  *       properties:
  *         id:
  *           type: string
- *           example: 6462a8f74c3d0ddd28897fb8
+ *           example: 6462a8f74c3d0ddd28897fb8 < == auto generate on create
  *         title:
  *           type: string
  *           example: Mediterranean Pasta Salad

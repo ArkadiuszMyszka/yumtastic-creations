@@ -10,6 +10,9 @@ const categoryRecipes = async (req, res, next) => {
     const findRecipes = await Recipe.find({ category: categoryTitle })
       .limit(perPage)
       .skip(skip * page);
+    if (findRecipes.length === 0) {
+    return next()
+    }
     return res.json(findRecipes).status(200);
   } catch (e) {
     console.log(e);
