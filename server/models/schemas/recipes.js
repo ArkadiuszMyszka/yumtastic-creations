@@ -15,11 +15,11 @@ const recipeSchema = new Schema(
   {
     title: {
       type: String,
-      // required: [true, "Title is required"],
+      required: [true, "Title is required"],
     },
     category: {
       type: String,
-      // required: [true, "Category is required"],
+      required: [true, "Category is required"],
     },
     area: {
       type: String,
@@ -27,7 +27,7 @@ const recipeSchema = new Schema(
     },
     instructions: {
       type: String,
-      // required: [true, "Instructions is required"],
+      required: [true, "Instructions is required"],
     },
     description: {
       type: String,
@@ -43,7 +43,7 @@ const recipeSchema = new Schema(
     },
     time: {
       type: Number,
-      // required: [true, "Time in minutes is required"],
+      required: [true, "Time in minutes is required"],
     },
     favorites: {
       type: Array,
