@@ -21,11 +21,16 @@ const setupFolder = async (path) => {
   }
 };
 
-const tempDir = path.join(process.cwd(), "tmp");
-const storeImageDir = path.join(process.cwd(), "public/avatars");
+const tempDir = path.join(process.cwd(), "server/tmp");
+const storeAvatarDir = path.join(process.cwd(), "server/public/avatars");
+const storeRecipeImgDir = path.join(
+  process.cwd(),
+  "server/public/recipeImages"
+);
 
 setupFolder(tempDir);
-setupFolder(storeImageDir);
+setupFolder(storeAvatarDir);
+setupFolder(storeRecipeImgDir);
 
 const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
