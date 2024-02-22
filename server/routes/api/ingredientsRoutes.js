@@ -35,6 +35,41 @@ const ingredients = Router();
 
 ingredients.get("/list", authMiddleware, ingredientsList);
 
+/**
+ * @openapi
+ *  /ingredients:
+ *      get:
+ *          tags: [Ingredients]
+ *          summary: Search recipes, containing defined ingredient
+ *          requestBody:
+ *              required: true
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              _id:
+ *                                  type: string
+ *                                  example: 640c2dd963a319ea671e365b
+ *          responses:
+ *              200:
+ *                  description: Returns list of recipes, status, quantity of found documents   
+ *                  content:   
+ *                      application/json:
+ *                          schema:
+ *                              $ref: "#/components/schemas/ingredient"
+ *              404:
+ *                  description: Recipes not found
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: object
+ *                              properties:
+ *                                  message:
+ *                                      type: string
+ */
+
+
 ingredients.get("/", authMiddleware, recipesByIngredients);
 
 export default ingredients;

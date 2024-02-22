@@ -16,7 +16,7 @@ import findIngID from "#helpers/ingredientsHelper.js";
 //   }
 // };
 const recipesByIngredients = async (req, res, next) => {
-  const ingId = req.body.ingredientiD;
+  const ingId = req.body._id;
   try {
     const findRecipesByIng = await Recipe.find({
       "ingredients.id": ingId,
