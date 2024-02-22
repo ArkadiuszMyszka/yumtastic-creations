@@ -1,30 +1,7 @@
-import multer from "multer";
 import fs from "fs";
-import path from "path";
 import Jimp from "jimp";
-import {
-  multerStorage,
-  extensionWhiteList,
-  mimetypeWhiteList,
-} from "#config/multer.js";
 
-export const uploadMiddleware = multer({
-  storage: multerStorage,
-  fileFilter: async (req, file, cb) => {
-    const extension = path.extname(file.originalname).toLowerCase();
-    const mimetype = file.mimetype;
-    if (
-      !extensionWhiteList.includes(extension) ||
-      !mimetypeWhiteList.includes(mimetype)
-    ) {
-      return cb(null, false);
-    }
-    return cb(null, true);
-  },
-  limits: { fileSize: 1024 * 1024 * 5 }, // 5MB
-});
-
-export const isImageAndTransform = (path, filename) =>
+export const transformation = (path, filename, pathname, size) =>
   new Promise((resolve, reject) => {
     Jimp.read(path, async (err, image) => {
       if (err) {
@@ -40,8 +17,8 @@ export const isImageAndTransform = (path, filename) =>
 
         await image
           .crop(x, y, minDimension, minDimension)
-          .resize(250, 250)
-          .writeAsync(`server/public/avatars/${filename}`);
+          .resize(size, size)
+          .writeAsync(`server/public/${pathname}/${filename}`);
 
         fs.unlink(path, (err) => {
           if (err) {

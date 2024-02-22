@@ -19,8 +19,6 @@ const recipes = Router();
  *  description: Recipes routes to manage recipes
  */
 
-
-
 /**
  * @openapi
  *  /recipes/main-page:
@@ -39,8 +37,8 @@ const recipes = Router();
  *                                  example: Chicken
  *          responses:
  *              200:
- *                  description: Returns list of recipes, status, quantity of found documents   
- *                  content:   
+ *                  description: Returns list of recipes, status, quantity of found documents
+ *                  content:
  *                      application/json:
  *                          schema:
  *                              $ref: "#/components/schemas/recipe"
@@ -149,7 +147,7 @@ recipes.get("/recipes/:id", authMiddleware, idRecipe);
  *        schema:
  *         type: object
  *         $ref: "#/components/schemas/recipe"
- *              
+ *
  *    responses:
  *      201:
  *        description: Recipe created successfully
@@ -207,13 +205,13 @@ recipes.delete("/ownRecipes", authMiddleware, deleteRecipe);
  *                      schema:
  *                          type: object
  *                          properties:
- *                              _id: 
+ *                              _id:
  *                                  type: string
  *                                  example: 65d64d4a0d91ce76deb4936c
  *          responses:
  *              200:
- *                  description: Returns list of recipes, status, quantity of found documents   
- *                  content:   
+ *                  description: Returns list of recipes, status, quantity of found documents
+ *                  content:
  *                      application/json:
  *                          schema:
  *                              $ref: "#/components/schemas/recipe"

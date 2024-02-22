@@ -1,4 +1,4 @@
-import { updateAvatar } from "#helpers/updateAvatar.js";
+import { updateAvatar } from "#utils/multer/updateAvatar.js";
 import { User } from "#schemas/User.js";
 
 export const patchAvatar = async (req, res) => {
