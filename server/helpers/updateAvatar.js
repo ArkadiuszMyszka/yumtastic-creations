@@ -1,5 +1,7 @@
 import { User } from "#schemas/User.js";
 import { uploadAvatar } from "#helpers/uploadAvatar.js";
+import { isImageAndTransform } from "#middlewares/multer.js";
+import path from "path";
 
 export const updateAvatar = async (req, user) => {
   try {
@@ -9,6 +11,8 @@ export const updateAvatar = async (req, user) => {
       throw new Error("File is not an image or could not be transformed");
     }
     const avatarURL = "/avatars/" + file.filename;
+    console.log(avatarURL);
+
     await User.findByIdAndUpdate(user.id, { avatarURL });
     return avatarURL;
   } catch (err) {

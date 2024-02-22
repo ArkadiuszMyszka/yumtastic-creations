@@ -22,6 +22,7 @@ const setupFolder = async (path) => {
 };
 
 const tempDir = path.join(process.cwd(), "server/tmp");
+const publicDir = path.join(process.cwd(), "server/public");
 const storeAvatarDir = path.join(process.cwd(), "server/public/avatars");
 const storeRecipeImgDir = path.join(
   process.cwd(),
@@ -29,6 +30,7 @@ const storeRecipeImgDir = path.join(
 );
 
 setupFolder(tempDir);
+setupFolder(publicDir);
 setupFolder(storeAvatarDir);
 setupFolder(storeRecipeImgDir);
 

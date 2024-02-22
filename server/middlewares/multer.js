@@ -41,7 +41,7 @@ export const isImageAndTransform = (path, filename) =>
         await image
           .crop(x, y, minDimension, minDimension)
           .resize(250, 250)
-          .writeAsync(`public/avatars/${filename}`);
+          .writeAsync(`server/public/avatars/${filename}`);
 
         fs.unlink(path, (err) => {
           if (err) {
