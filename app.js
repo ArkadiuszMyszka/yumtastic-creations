@@ -84,6 +84,7 @@ app.use("/", favorites);
 app.use("/", auth);
 app.use("/", recipes);
 app.use("/", avatar);
+
 app.use("/ingredients", ingredients);
 app.use("/shopping-list", shoppingList);
 app.use((req, res) => {

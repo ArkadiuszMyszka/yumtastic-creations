@@ -1,4 +1,6 @@
 import { Recipe } from "#schemas/recipes.js";
+import { upload } from "#utils/multer/upload.js";
+import { addRecipeImage } from "../../utils/multer/addRecipeImage.js";
 
 async function createRecipe(req, res, next) {
   const {
@@ -17,6 +19,7 @@ async function createRecipe(req, res, next) {
   } = req.body;
   const user = res.locals.user._id;
   try {
+    const getThumbURL = await addRecipeImage(req, user);
     const newRecipe = new Recipe({
       title,
       category,
@@ -27,7 +30,7 @@ async function createRecipe(req, res, next) {
       instructions,
       favorites,
       description,
-      thumb,
+      thumb: getThumbURL,
       preview,
       ingredients,
       owner: user,
@@ -36,8 +39,8 @@ async function createRecipe(req, res, next) {
 
     return res.status(201).json({ message: "Recipe created!", newRecipe });
   } catch (e) {
-    console.log(e);
-    return res.status(500).json(e);
+    console.log(e.message);
+    return res.status(500).json({ message: e.message });
   }
 }
 
