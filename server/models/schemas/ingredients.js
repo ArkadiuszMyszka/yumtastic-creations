@@ -29,6 +29,9 @@ const ingredientsSchema = new Schema({
  *         - ttl
  *       type: object
  *       properties:
+ *         _id:
+ *           type: string
+ *           example: 640c2dd963a319ea671e365b
  *         ttl:
  *           type: string
  *           example: Chicken

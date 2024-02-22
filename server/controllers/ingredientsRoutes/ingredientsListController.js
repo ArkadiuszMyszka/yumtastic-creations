@@ -2,10 +2,7 @@ import { Ingredients } from "#schemas/ingredients.js";
 
 const ingredientsList = async (req, res, next) => {
   try {
-    const list = await Ingredients.findOne(
-      { ttl: ingredientTitle },
-      { _id: 1 }
-    ).lean();
+    const list = await Ingredients.find();
     return res.json(list).status(200);
   } catch (error) {
     console.log(error);

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { subscribe } from "#controllers/indexRoutes/subscribeController.js";
+import { subscribe } from "#controllers/subscribeRoutes/subscribeController.js";
 
 const newsletter = Router();
 
