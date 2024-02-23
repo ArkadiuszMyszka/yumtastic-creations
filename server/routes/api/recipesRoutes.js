@@ -53,7 +53,7 @@ const recipes = Router();
  *                                      type: string
  */
 
-recipes.get("/recipes/main-page", authMiddleware, categoryMainPage);
+recipes.post("/recipes/main-page", authMiddleware, categoryMainPage);
 
 /**
  * @openapi
