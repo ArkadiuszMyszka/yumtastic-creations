@@ -59,6 +59,26 @@ recipes.get("/recipes/main-page", authMiddleware, categoryMainPage);
 
 /**
  * @openapi
+ * /recipes/category-list:
+ *  get:
+ *    summary: Allows application to get a last of recipes categories
+ *    tags: [Recipes]
+ *    responses:
+ *      200:
+ *        description: Lisr of categories loaded successfully
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                type: string
+ *              example: ["Beef", "Pork"]
+ */
+
+recipes.get("/recipes/category-list",authMiddleware, categoryList);
+
+/**
+ * @openapi
  * /recipes/{category}:
  *  get:
  *    summary: Brings recipes for render on main page, returns by 8 recipes 
