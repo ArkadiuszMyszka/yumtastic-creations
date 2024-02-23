@@ -77,7 +77,7 @@ shoppingList.post("/", authMiddleware, addToList);
  *                  example: 65d8aea2e036c489d64ccf39 <-- ingredient ID
  *              measure:
  *                  type: string
- *                  example: "4" --> FIND IN TABLE AND DELETE BY INDEX
+ *                  example: 4 --> FIND IN TABLE AND DELETE BY INDEX
  *    responses:
  *      201:
  *          description: Shopping list available
