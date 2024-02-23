@@ -1,8 +1,9 @@
 import { User } from "#schemas/user.js";
+import { Ingredients } from "../../models/schemas/ingredients.js";
 
 const addToList = async (req, res, next) => {
   const { _id } = res.locals.user;
-  const ingredientId = req.body.ingredientId;
+  const ingredientId = req.body._id;
   const measure = req.body.measure;
   const newIngredient = {
     measure: measure,
@@ -10,6 +11,11 @@ const addToList = async (req, res, next) => {
   };
 
   try {
+    const ingredient = await Ingredients.findById(ingredientId);
+     if (!ingredient) {
+       
+       return res.status(404).json({ message: "Ingredient not found" });
+     }
     const user = await User.findById(_id);
     if (!user.shoppingList || user.shoppingList.length === 0) {
       user.shoppingList = [newIngredient];

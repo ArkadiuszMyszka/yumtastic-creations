@@ -6,6 +6,9 @@ const shopingListStatus = async (req, res, next) => {
   try {
     const user = await User.findById(_id);
     const shoppingList = user.shoppingList;
+    if (shoppingList.length === 0) {
+      return res.json({ message: "Shopping list is empty" }).status(404);
+    }
     return res.json(shoppingList).status(200);
   } catch (e) {
     console.log(e);
