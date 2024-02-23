@@ -1,13 +1,15 @@
 import mongoose, { Schema } from "mongoose";
 
-const ingredientsSchema = new Schema({
-  
-  id: mongoose.Types.ObjectId,
-  measure: {
-    type: String,
-    required: [true, "Measure is required"],
+const ingredientsSchema = new Schema(
+  {
+    id: mongoose.Types.ObjectId,
+    measure: {
+      type: String,
+      required: [true, "Measure is required"],
+    },
   },
-},{ _id : false }); 
+  { _id: false }
+);
 
 const recipeSchema = new Schema(
   {

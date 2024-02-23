@@ -7,7 +7,7 @@ import { setJWTStrategy } from "#config/jwt.js";
 import swaggerUI from "swagger-ui-express";
 import swaggerjsdoc from "swagger-jsdoc";
 
-import swaggerApis from "./server/utils/swagger/apis.js"
+import swaggerApis from "./server/utils/swagger/apis.js";
 
 import index from "#apiRoutes/indexRoutes.js";
 import auth from "#apiRoutes/authRoutes.js";
@@ -16,6 +16,7 @@ import ingredients from "#apiRoutes/ingredientsRoutes.js";
 import newsletter from "#apiRoutes/subscribeRoutes.js";
 import favorites from "#apiRoutes/favoritesRoutes.js";
 import shoppingList from "#apiRoutes/shoppingListRoutes.js";
+import avatar from "#apiRoutes/avatarRoutes.js";
 
 const app = express();
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
@@ -53,7 +54,7 @@ const options = {
     ],
   },
 
-  apis: swaggerApis, 
+  apis: swaggerApis,
 };
 
 const swaggerSpec = swaggerjsdoc(options);
@@ -61,18 +62,19 @@ const swaggerDocs = (app, port) => {};
 app.use(
   "/api-docs",
   swaggerUI.serve,
-  swaggerUI.setup(swaggerSpec,
-  //   {
-  //   explorer: true,
-  //   customCssUrl:
-  //     "https://cdn.jsdelivr.net/npm/swagger-ui-themes@3.0.0/themes/3.x/theme-newspaper.css",
-  // }
+  swaggerUI.setup(
+    swaggerSpec
+    //   {
+    //   explorer: true,
+    //   customCssUrl:
+    //     "https://cdn.jsdelivr.net/npm/swagger-ui-themes@3.0.0/themes/3.x/theme-newspaper.css",
+    // }
   )
 );
 app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static("server/public"));
 
 setJWTStrategy();
 
@@ -81,6 +83,8 @@ app.use("/", newsletter);
 app.use("/", favorites);
 app.use("/", auth);
 app.use("/", recipes);
+app.use("/", avatar);
+
 app.use("/ingredients", ingredients);
 app.use("/shopping-list", shoppingList);
 app.use((req, res) => {

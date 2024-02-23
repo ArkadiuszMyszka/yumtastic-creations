@@ -52,6 +52,7 @@
     "#config/*": "./server/config/*",
     "#schemas/*": "./server/models/schemas/*",
     "#controllers/*": "./server/controllers/*",
-    "#middlewares/*": "./server/middlewares/*"
+    "#middlewares/*": "./server/middlewares/*",
+    "#utils/*": "./server/utils/*"
   }
 }
