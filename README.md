@@ -1,48 +1,78 @@
-# parcel-project-template
+Project frontend:
 
-## Zalezności
+https://github.com/ArkadiuszMyszka/yumtasticcreations
 
-Na komputerze musi być zainstalowana LTS-wersja [Node.js](https://nodejs.org/en/).
+# Table of Contents
 
-## Przed rozpoczęciem pracy
+- Introduction
+- Technologies
+- Running the Application
+- Illustrations
+- Features Scope
+- Usage Examples
+- Project Status
 
-Jeden raz na projekt zainstalować wszystkie zalezności.
+## SoYummy
 
-```shell
-npm ci
-```
+![Mem](./src/images/readme/SY_5.png)
 
-### Praca
+Welcome to SoYummy - the place where your culinary dreams become reality! Have you ever wondered what to do with those exotic ingredients sitting in your pantry? Or perhaps you're eager to explore new flavor horizons? Well, SoYummy is the answer to your culinary-philosophical questions!
 
-Włączyć tryp pracy.
+Why did the tomato turn red?
+Because it saw the salad dressing!
 
-```shell
-npm run dev
-```
+## Introduction
 
-W przeglądarce przejść na [http://localhost:1234](http://localhost:1234).
+SoYummy is a culinary application that gathers recipes from all around the world, allowing you to explore culinary flavors and discover new cuisines. This project was created with the aim of providing users not only with recipes but also with convenient tools to manage their culinary journey.
 
-### Deploy
+### Technologies
 
-Kod będzie automatycznie się zbierać i robić deploy aktualnej wersji projektu 
-na GitHub Pages, w gałąź `gh-pages`, za kazdym razem jeśli zostaną wprowadzone zmiany w `main`. Na przykład, po bezpośrenim push lub po przyjęciu pull-request. Aby to działało musimy w pliku `package.json` zmienić pole `homepage` i skrypt
-`build`, zmieniając `nazwe_uzytkownika` i `nazwe_repozytorium` na swoje.
+The project has been built using various technologies, including:
 
-```json
-"homepage": "https://nazwa_uzytkownika.github.io/nazwa_repozytorium",
-"scripts": {
-  "build": "parcel build src/*.html --public-url /nazwa_repozytorium/"
-},
-```
+- React
+- Node.js
+- Express.js
+- MongoDB
+- Jsonwebtoken
+- Passport
 
-Po jakimś czasie stronę mozna będzie zobaczyć na zywo pod adresem który 
-jest wpisany w poprawione właściwości `homepage`, na przykład
-[https://goitacademy.github.io/parcel-project-template](https://goitacademy.github.io/parcel-project-template).
+### Running the Application
 
-## Pliki i folderzy
+To run the SoYummy application locally, follow these steps:
 
-- Wszystkie partials plików styłów powinny być w folderze `src/sass` i importować się w
-  `src/sass/main.scss`
-- Zdjęcia dodawajcie w folder `src/images`, przed tym zoptymizujcie te zdjęcia które dodajecie. Program po prostu 
-  kopiuje wykorzystane zdjęcia aby system nie musiał optymizować je, bo na słabych komputerach 
-  to moze zająć duzo czasu.
+1. Clone the repository to your computer.
+2. Navigate to the project directory.
+3. Install dependencies using the command npm install.
+4. Start the application in development mode by entering the command npm start.
+
+##### Illustrations
+
+SoYummy is not just a collection of recipes but also a place where your culinary dreams become reality. Below are some screenshots from our application:
+
+![Przykładowy screenshot](./src/images/readme/SY_1.PNG)
+![Przykładowy screenshot](./src/images/readme/SY_3.PNG)
+![Przykładowy screenshot](./src/images/readme/SY_4.PNG)
+
+##### Features Scope
+
+- Browsing recipes from various cuisines.
+- Adding favorite recipes.
+- Creating a shopping list based on recipes.
+- Adding custom recipes.
+
+###### Usage Examples
+
+- Finding something tasty to cook.
+- Sharing your own recipe with the world.
+- Drawing inspiration for your culinary development.
+- Saving paper using the built-in "Shopping List" feature.
+
+###### Adding a Recipe
+
+Don't worry. At worst, someone might not like it, but perhaps you'll become the next Gordon Ramsay :)
+
+![Przykładowy screenshot](./src/images/readme/SY_2.PNG)
+
+##### Project Status
+
+Our project is under construction and undergoing continuous improvements to ensure the best possible experience for you. We eagerly await your feedback and ideas for what new features we can add!
