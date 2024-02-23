@@ -2,10 +2,15 @@ import { User } from "#schemas/user.js";
 
 const deleteFromList = async (req, res, next) => {
   const { _id } = res.locals.user;
-  const ingredientId = req.body.ingredientId;
+  const ingredientId = req.body._id;
   const measure = req.body.measure;
   try {
     const user = await User.findById(_id);
+    if (!user.shoppingList || user.shoppingList.length === 0) {
+      return res.status(404).json({
+        message: "Shopping list is empty",
+      });
+    }
     const indexIngredient = user.shoppingList.findIndex((obj) => {
       return obj.ingredientId == ingredientId;
     });
@@ -15,11 +20,6 @@ const deleteFromList = async (req, res, next) => {
 
     const measureAvaible = user.shoppingList[indexIngredient].measure.length;
 
-    if (!user.shoppingList || user.shoppingList.length === 0) {
-      return res.status(404).json({
-        message: "Shopping list is empty",
-      });
-    }
     if (!measureAvaible || measureAvaible === 0) {
       await User.findOneAndUpdate(
         { _id: _id },
@@ -28,14 +28,25 @@ const deleteFromList = async (req, res, next) => {
         },
         { new: true }
       );
+      
       return res.status(404).json({ message: "Ingredient not found" });
     }
     if (indexMeasure !== -1) {
       const currentShoppingList = user.shoppingList[indexIngredient].measure;
-
       currentShoppingList.splice(indexMeasure, 1);
+      console.log(currentShoppingList.length);
       user.save();
-      return res.status(200).json(user.shoppingList);
+      if (currentShoppingList.length === 0) {
+       const text = await User.findOneAndUpdate(
+          { _id: _id },
+          {
+            $pull: { shoppingList: { ingredientId: ingredientId } },
+          },
+          { new: true }
+        );
+        return res.status(201).json(text.shoppingList);
+      }
+      return res.status(201).json(text);
     } else {
       return res.status(404).json({ message: "Measure not found" });
     }
