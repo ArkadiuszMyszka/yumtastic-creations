@@ -1,7 +1,7 @@
 import { Recipe } from "#schemas/recipes.js";
 
 const categoryMainPage = async (req, res, next) => {
-  const categoryTitle = req.body.title;
+  const categoryTitle = req.params.category;
   try {
     const findRecipes = await Recipe.find({ category: categoryTitle }).lean();
 

@@ -42,7 +42,7 @@ favorites.get("/favorites", authMiddleware, favoritesList);
 /**
  * @openapi
  * /favorite:
- *  post:
+ *  patch:
  *   summary: Allows user to save or delete defined recipe to favorites collection
  *   tags: [Favorites]
  *   parameters:
@@ -58,9 +58,9 @@ favorites.get("/favorites", authMiddleware, favoritesList);
  *         schema:
  *           type: object
  *           properties:
- *                  id:
+ *                  _id:
  *                      type: string
- *                      example: recipe ID
+ *                      example: 640cd5ac2d9fecf12e8897fc <-recipe ID
  *   responses:
  *          200:
  *              description: Defined recipe added to user's favorite collection
