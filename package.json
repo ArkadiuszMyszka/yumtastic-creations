@@ -1,6 +1,9 @@
 {
   "name": "yumtastic-creations",
   "version": "1.1.0",
+  "engines": {
+    "node": "18.x"
+  },
   "description": "",
   "type": "module",
   "homepage": "https://ArkadiuszMyszka.github.io/Yumtastic-Creations",
