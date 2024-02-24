@@ -37,20 +37,17 @@ ingredients.get("/list", authMiddleware, ingredientsList);
 
 /**
  * @openapi
- *  /ingredients:
- *      get:
- *          tags: [Ingredients]
- *          summary: Search recipes, containing defined ingredient
- *          requestBody:
- *              required: true
- *              content:
- *                  application/json:
- *                      schema:
- *                          type: object
- *                          properties:
- *                              _id:
- *                                  type: string
- *                                  example: 640c2dd963a319ea671e365b
+ *  /ingredients/{id}:
+ *  get:
+ *    summary: Search recipes, containing defined ingredient 
+ *    tags: [Ingredients]
+ *    parameters:
+ *      - in: path
+ *        name: category
+ *        required: true
+ *        schema:
+ *          type: string
+ *          example: /recipes/category/640c2dd963a319ea671e365b 
  *          responses:
  *              200:
  *                  description: Returns list of recipes, status, quantity of found documents   
@@ -70,6 +67,6 @@ ingredients.get("/list", authMiddleware, ingredientsList);
  */
 
 
-ingredients.get("/", authMiddleware, recipesByIngredients);
+ingredients.get("/:id", authMiddleware, recipesByIngredients);
 
 export default ingredients;
