@@ -78,7 +78,7 @@ app.use(express.static("server/public"));
 
 setJWTStrategy();
 
-app.use("/", index);
+// app.use("/", index);
 app.use("/", newsletter);
 app.use("/", favorites);
 app.use("/", auth);
