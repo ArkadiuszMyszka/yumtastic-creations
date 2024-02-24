@@ -9,6 +9,7 @@ import createRecipe from "#controllers/recipesRoutes/createRecipesController.js"
 import deleteRecipe from "#controllers/recipesRoutes/deleteRecipesController.js";
 import findOwnRecipes from "#controllers/recipesRoutes/findOwnRecipesController.js";
 import searchRecipe from "#controllers/recipesRoutes/searchRecipeController.js";
+import popularRecipes from "../../controllers/recipesRoutes/popularRecipeController.js";
 
 const recipes = Router();
 
@@ -21,20 +22,17 @@ const recipes = Router();
 
 /**
  * @openapi
- *  /recipes/main-page:
- *      get:
- *          tags: [Recipes]
- *          summary: Brings recipes for render on main page by category
- *          requestBody:
- *              required: true
- *              content:
- *                  application/json:
- *                      schema:
- *                          type: object
- *                          properties:
- *                              title:
- *                                  type: string
- *                                  example: Chicken
+ *  /recipes/main-page/{category}:
+ *  get:
+ *    summary: Brings recipes for render on main page by category
+ *    tags: [Recipes]
+ *    parameters:
+ *      - in: path
+ *        name: category
+ *        required: true
+ *        schema:
+ *          type: string
+ *          example: /recipes/category/Beef *
  *          responses:
  *              200:
  *                  description: Returns list of recipes, status, quantity of found documents
@@ -53,7 +51,9 @@ const recipes = Router();
  *                                      type: string
  */
 
+
 recipes.post("/recipes/main-page", categoryMainPage);
+
 
 /**
  * @openapi
@@ -73,7 +73,9 @@ recipes.post("/recipes/main-page", categoryMainPage);
  *              example: ["Beef", "Pork"]
  */
 
+
 recipes.get("/recipes/category-list", categoryList);
+
 
 /**
  * @openapi
@@ -196,44 +198,33 @@ recipes.delete("/ownRecipes", authMiddleware, deleteRecipe);
  * @openapi
  * /ownRecipes:
  *  get:
- *          tags: [Recipes]
- *          summary: Allows user to get all recipes, created by this user
- *          requestBody:
- *              required: true
- *              content:
- *                  application/json:
- *                      schema:
- *                          type: object
- *                          properties:
- *                              _id:
- *                                  type: string
- *                                  example: 65d64d4a0d91ce76deb4936c
- *          responses:
- *              200:
- *                  description: Returns list of recipes, status, quantity of found documents
- *                  content:
- *                      application/json:
- *                          schema:
- *                              $ref: "#/components/schemas/recipe"
+ *    summary: Allows user to get all recipes, created by this user
+ *    tags: [Recipes]
+ *    responses:
+ *      200:
+ *        description: Data loaded successfully
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: "#/components/schemas/recipe"
+ *
  */
 
 recipes.get("/ownRecipes", authMiddleware, findOwnRecipes);
 
 /**
  * @openapi
- * /search:
+ * /search/{searchTitle}:
  *  get:
- *    summary: Search recipes, matching search query
+ *    summary: Search recipes, matching search query 
  *    tags: [Recipes]
- *    requestBody:
- *      required: true
- *      content:
- *          application/json:
- *              schema:
- *                  type: object
- *                  properties:
- *                      searchTitle:
- *                          type: string
+ *    parameters:
+ *      - in: path
+ *        name: searchTitle
+ *        required: true
+ *        schema:
+ *          type: string
+ *          example: /search/bee 
  *    responses:
  *      200:
  *          description: Recipes found
@@ -254,6 +245,38 @@ recipes.get("/ownRecipes", authMiddleware, findOwnRecipes);
  *                              type: string
  */
 
-recipes.get("/search", authMiddleware, searchRecipe);
+recipes.get("/search/:searchTitle", authMiddleware, searchRecipe);
+
+/**
+ * @openapi
+ * tags:
+ *  name: Popular
+ *  description: Brings list of popular recipes.
+ */
+
+/**
+ * @openapi
+ *  /popular-recipe:
+ *      get:
+ *          summary: Returns list of 5 most popular recipes
+ *          tags: [Popular]
+ *          responses:
+ *              200:
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: object
+ *                              properties:
+ *                                  code:
+ *                                      type: integer
+ *                                  message:
+ *                                      type: string
+ *                                  data:
+ *                                      type: array
+ *                                      items:
+ *                                          $ref: "#/components/schemas/Recipe"
+ */
+
+recipes.get("/popular-recipe", authMiddleware, popularRecipes);
 
 export default recipes;
