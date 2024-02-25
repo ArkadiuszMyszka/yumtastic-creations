@@ -46,11 +46,8 @@ const options = {
     ],
     servers: [
       {
-        url: "http://localhost:3002/",
+        url: "https://yumtasticbe.onrender.com",
       },
-      // {
-      //   url: "tutaj bedzie adres drugiego servera",
-      // },
     ],
   },
 
