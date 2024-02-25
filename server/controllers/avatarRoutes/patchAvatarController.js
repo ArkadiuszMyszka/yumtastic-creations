@@ -1,5 +1,5 @@
 import { updateAvatar } from "#utils/multer/updateAvatar.js";
-import { User } from "#schemas/User.js";
+import { User } from "#schemas/user.js";
 
 export const patchAvatar = async (req, res) => {
   try {

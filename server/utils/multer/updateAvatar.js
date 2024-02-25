@@ -1,4 +1,4 @@
-import { User } from "#schemas/User.js";
+import { User } from "#schemas/user.js";
 import { upload } from "#utils/multer/upload.js";
 import { transformation } from "#utils/multer/transformation.js";
 

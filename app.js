@@ -46,11 +46,8 @@ const options = {
     ],
     servers: [
       {
-        url: "http://localhost:3002/",
+        url: "https://yumtasticbe.onrender.com",
       },
-      // {
-      //   url: "tutaj bedzie adres drugiego servera",
-      // },
     ],
   },
 
@@ -78,7 +75,7 @@ app.use(express.static("server/public"));
 
 setJWTStrategy();
 
-app.use("/", index);
+// app.use("/", index);
 app.use("/", newsletter);
 app.use("/", favorites);
 app.use("/", auth);
