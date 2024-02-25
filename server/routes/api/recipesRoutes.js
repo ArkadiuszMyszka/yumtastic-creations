@@ -52,7 +52,7 @@ const recipes = Router();
  */
 
 
-recipes.post("/recipes/main-page", categoryMainPage);
+recipes.post("/recipes/main-page",authMiddleware, categoryMainPage);
 
 
 /**
@@ -74,7 +74,7 @@ recipes.post("/recipes/main-page", categoryMainPage);
  */
 
 
-recipes.get("/recipes/category-list", categoryList);
+recipes.get("/recipes/category-list",authMiddleware, categoryList);
 
 
 /**
