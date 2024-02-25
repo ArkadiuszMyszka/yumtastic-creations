@@ -36,6 +36,6 @@ const router = Router();
  *                            $ref: "#components/schemas/Error"
  */
 
-router.get("/categories", authMiddleware, categoriesPage); // Zaktualizowana trasa prowadząca do strony kategorii
+router.get("/categories", authMiddleware, categoryPageController); // Zaktualizowana trasa prowadząca do strony kategorii
 
 export default router;
