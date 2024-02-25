@@ -72,7 +72,7 @@ recipes.get("/recipes/main-page/:category", authMiddleware, categoryMainPage);
  */
 
 
-recipes.get("/recipes/category-list",authMiddleware, categoryList);
+recipes.get("/recipes/category-list", authMiddleware, categoryList);
 
 
 /**
