@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { authMiddleware } from "#middlewares/authMiddleware.js";
-import { categoriesPage } from "#controllers/categoryPageController.js"; // Import kontrolera dla strony kategorii
+import { categoriesPage } from "#controllers/categoryMainPageController.js"; // Import kontrolera dla strony kategorii
 
 const router = Router();
 
@@ -36,6 +36,6 @@ const router = Router();
  *                            $ref: "#components/schemas/Error"
  */
 
-router.get("/categories", authMiddleware, categoryPageController); // Zaktualizowana trasa prowadząca do strony kategorii
+router.get("/categories", authMiddleware, categoryMainPageController); // Zaktualizowana trasa prowadząca do strony kategorii
 
 export default router;
