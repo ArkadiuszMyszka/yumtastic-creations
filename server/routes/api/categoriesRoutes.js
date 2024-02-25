@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { authMiddleware } from "#middlewares/authMiddleware.js";
-import { categoriesPage } from "#controllers/categoriesController.js"; // Import kontrolera dla strony kategorii
+import { categoriesPage } from "#controllers/categoryPageController.js"; // Import kontrolera dla strony kategorii
 
 const router = Router();
 
