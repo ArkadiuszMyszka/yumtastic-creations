@@ -53,7 +53,7 @@ const recipes = Router();
  *                                      type: string
  */
 
-recipes.post("/recipes/main-page", categoryMainPage);
+recipes.get("/recipes/main-page/:category", authMiddleware, categoryMainPage);
 
 /**
  * @openapi
@@ -73,7 +73,9 @@ recipes.post("/recipes/main-page", categoryMainPage);
  *              example: ["Beef", "Pork"]
  */
 
-recipes.get("/recipes/category-list", categoryList);
+
+recipes.get("/recipes/category-list",authMiddleware, categoryList);
+
 
 /**
  * @openapi
