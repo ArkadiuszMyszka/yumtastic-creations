@@ -101,7 +101,7 @@ auth.post("/login", loginUser);
  *
  */
 
-auth.get("/logout", authMiddleware, logoutUser);
+auth.post("/logout", authMiddleware, logoutUser);
 
 /**
  * @openapi
