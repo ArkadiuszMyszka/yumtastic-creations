@@ -1,7 +1,5 @@
 import { Recipe } from "#schemas/recipes.js";
 
-//req powinien przyjac tylko _id receptury
-
 const deleteRecipe = async (req, res, next) => {
   const recipeId = req.body._id;
   const check = await Recipe.findOne({ _id: recipeId });

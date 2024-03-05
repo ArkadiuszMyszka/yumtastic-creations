@@ -1,7 +1,6 @@
 import { isInDb } from '#helpers/usersHelpers.js';
 import jwt from 'jsonwebtoken';
 
-// Jak na razie zwraca token jwt. W pozniejszym etapie do usunięcia,
 async function loginUser(req, res, next) {
   try {
     const { email, password } = req.body;

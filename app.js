@@ -60,12 +60,7 @@ app.use(
   "/api-docs",
   swaggerUI.serve,
   swaggerUI.setup(
-    swaggerSpec
-    //   {
-    //   explorer: true,
-    //   customCssUrl:
-    //     "https://cdn.jsdelivr.net/npm/swagger-ui-themes@3.0.0/themes/3.x/theme-newspaper.css",
-    // }
+    swaggerSpec   
   )
 );
 app.use(logger(formatsLogger));
@@ -75,7 +70,6 @@ app.use(express.static("server/public"));
 
 setJWTStrategy();
 
-// app.use("/", index);
 app.use("/", newsletter);
 app.use("/", favorites);
 app.use("/", auth);
