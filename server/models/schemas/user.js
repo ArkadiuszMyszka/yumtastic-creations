@@ -24,6 +24,14 @@ const userSchema = new Schema(
       type: String,
       default: "",
     },
+    token: {
+      type: String,
+      default: "",
+    },
+    isLogged: {
+      type: Boolean,
+      default: false,
+    },
     isValidated: {
       type: Boolean,
       default: false,
@@ -117,6 +125,12 @@ export const User =
  *         password:
  *           type: string
  *           description: User password
+ *         token:
+ *           type: string
+ *           description: User token generated after login
+ *         isLogged:
+ *           type: boolean
+ *           description: default false, inform if token is valid
  *         avatarURL:
  *           type: string
  *           default: ""
