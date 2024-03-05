@@ -9,7 +9,6 @@ import swaggerjsdoc from "swagger-jsdoc";
 
 import swaggerApis from "./server/utils/swagger/apis.js";
 
-import index from "#apiRoutes/indexRoutes.js";
 import auth from "#apiRoutes/authRoutes.js";
 import recipes from "#apiRoutes/recipesRoutes.js";
 import ingredients from "#apiRoutes/ingredientsRoutes.js";
