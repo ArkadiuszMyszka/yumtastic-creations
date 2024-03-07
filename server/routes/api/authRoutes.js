@@ -136,7 +136,7 @@ auth.get("/status", authMiddleware, statusUser);
 /**
  * @openapi
  * /patch:
- *  post:
+ *  patch:
  *   summary: Returns object with changed user data
  *   tags: [Users]
  *   parameters:
